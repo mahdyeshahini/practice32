@@ -1,0 +1,24 @@
+const int SW = 2; // کلید فشاری جوی‌استیک
+const int X = A0; // محور X
+const int Y = A1; // محور Y
+
+void setup() {
+  pinMode(SW, INPUT_PULLUP); // کلید در حالت پول‌آپ داخلی
+  Serial.begin(9600);        // شروع ارتباط سریال
+}
+
+void loop() {
+  Serial.print("Switch: ");
+  Serial.print(digitalRead(SW));   // خواندن وضعیت دکمه
+  Serial.print("\t\t");
+
+  Serial.print("VRx: ");
+  Serial.print(analogRead(X));     // خواندن محور X
+  Serial.print("\t\t");
+
+  Serial.print("VRy: ");
+  Serial.println(analogRead(Y));   // خواندن محور Y
+
+  Serial.println("____");          // خط جداکننده
+  delay(500);                      // تاخیر برای خواندن بهتر
+}
